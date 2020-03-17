@@ -1,0 +1,29 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Scraper</title>
+  </head>
+  <link rel="stylesheet" href="css/style.css" />
+  <body>
+    <h1>Job Scraper</h1>
+    <div class="container">
+      <form>
+        <input
+          id="query"
+          type="text"
+          placeholder="What job are you looking for?"
+        />
+        <input id="location" type="text" placeholder="Where?" />
+        <button id="scrapeButton">Scrape</button>
+      </form>
+    </div>
+    <div id="resultArea"><span id="sp"> </span></div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
