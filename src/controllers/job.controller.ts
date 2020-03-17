@@ -2,7 +2,7 @@ import scrapeJobs from '../services/job.service';
 
 const getJobs = async (req, res, next) => {
   try {
-    const result = await scrapeJobs();
+    const result = await scrapeJobs('Nantes', 'fullstack dev');
     res.send(result);
     next();
   } catch (e) {

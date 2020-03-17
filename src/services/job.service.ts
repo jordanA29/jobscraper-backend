@@ -1,17 +1,20 @@
 const cheerio = require('cheerio');
 const axios = require('axios');
 
-const url =
-  'https://www.indeed.fr/emplois?q=full-stack+developer&l=Nantes&radius=50';
+const url = 'https://www.indeed.fr/emplois?radius=50';
 
-const scrapeJobs = async () => {
-  const res = await axios.get(url);
+const scrapeJobs = async (location, query) => {
+  const res = await axios.get(url, {
+    params: {
+      l: location,
+      q: query
+    }
+  });
   const $ = cheerio.load(res.data);
 
   const jobTable = $('#resultsCol');
   const jobs = jobTable.find('.result');
   const results = Array.from(createObjects(filterJobs(jobs, $), $));
-  console.log('les results', results);
   return results;
 };
 
@@ -71,7 +74,6 @@ const createObjects = (filtered: Array<Object>, $) => {
       salary: salary
     };
   });
-  console.log('OBJ', jobObjects);
 
   return jobObjects;
 };
