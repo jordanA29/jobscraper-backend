@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import ScrapeRoutes from './scrape.routes';
-import JobRoutes from './job.routes';
+import OfferRoutes from './offer.routes';
 
 const router = Router();
 
 router.use('/scrape', ScrapeRoutes);
-router.use('/jobs', JobRoutes);
+router.use('/offers', OfferRoutes);
 
 export default router;
